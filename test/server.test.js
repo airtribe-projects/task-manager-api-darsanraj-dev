@@ -1,6 +1,6 @@
 const tap = require("tap");
 const supertest = require("supertest");
-const app = require("../app");
+const app = require("../src/app");
 const server = supertest(app);
 
 tap.test("POST /tasks", async (t) => {
@@ -45,6 +45,7 @@ tap.test("GET /tasks/:id", async (t) => {
     title: "Set up environment",
     description: "Install Node.js, npm, and git",
     completed: true,
+    priority: "medium"
   };
   t.match(response.body, expectedTask);
   t.end();
